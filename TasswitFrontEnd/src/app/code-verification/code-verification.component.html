@@ -1,0 +1,71 @@
+
+<div fxLayout="column" fxLayoutAlign="space-around center" >
+<table>
+  <tr>
+    <td class="active">
+      Verification
+    </td>
+    <td>
+      Voting
+    </td>
+    <td>
+      Review
+    </td>
+    <td>
+      Confirm
+    </td>
+  </tr>
+</table>
+
+<h1>VOTING</h1>
+<h3 class="subtitle">Verification</h3>
+
+<div class="container"
+  fxLayout="column"
+  fxLayoutGap="10px">
+  <div fxFlex fxFlexOffSet="20px" class="form-size">
+ <!-- <p>{{ emailForm.value | json}} {{emailForm.status | json}}</p>  -->
+    <form novalidate [formGroup]="emailForm" #eform="ngForm" (ngSubmit)="onSubmit()">
+      <mat-checkbox formControlName="checkbox" required>I Confirm that i am voting today and i understand that this negates my need
+        to vote in person.
+      </mat-checkbox>
+      <div class="bolded">Please enter your phone member and note below the 4 digits code that you will receive.</div>
+      <div fxLayout="column" fxLayoutAlign="center center" >
+      <div fxLayout="row" fxLayoutAlign="center center" >
+        <mat-form-field >
+          <input matInput formControlName="email" placeholder="Email" type="email" email class="pad" required>
+          <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button type="submit" class="green" mat-button [disabled]="emailForm.invalid">Request Code</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="verifyCode" [hidden]="allowed">
+    <!--{{codeForm.value | json}}-->
+    <form novalidate [formGroup]="codeForm" #cvform="ngForm" (ngSubmit)="onSubmit2()">
+      <div *ngIf="errMsg" class="error">
+        {{errMsg}}
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center" >
+        <div fxLayout="row" fxLayoutAlign="center center" >
+        <mat-form-field >
+          <input matInput formControlName="code" placeholder="4 Digits Code" type="text" required>
+          <mat-error *ngIf="formErrors.email">{{formErrors.code}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button type="submit" class="green" mat-button [disabled]="codeForm.invalid">Verify Code</button>
+      </div>
+    </form>
+  </div>
+
+<div fxLayout="column" fxLayoutAlign="space-between center" *ngIf="allowed">
+  <div fxLayout="row" fxLayoutAlign="center center" >
+    <img src="../assets/images/check.png" class="checkLogo">
+    <p class="par"> You are Verified !</p>
+  </div>
+  <button mat-button class="lim" [routerLink]="['/verify', user.cnie]">BEGIN VOTING</button>  </div>
+</div>
+
+
+</div>

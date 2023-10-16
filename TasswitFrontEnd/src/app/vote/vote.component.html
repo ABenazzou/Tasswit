@@ -1,0 +1,51 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" >
+<div fxFlex fxFlexOffset="20px" class="form-size">
+<div class="center">
+  <h3> Before you vote...</h3>
+  <h1>MANDATORY REGISTRATION CHECK</h1>
+  <h3>Please enter your information in order to verify that you've registred to vote</h3>
+</div>
+<!--{{LoginForm.value | json}} {{LoginForm.status | json}}
+
+<mat-list >
+  <mat-list *ngFor="let user of users">
+    <mat-list-item>
+      <p mat-line>{{user.cnie}}</p>
+      <p mat-line>{{user.password}}</p>
+    </mat-list-item>
+  </mat-list>
+</mat-list>-->
+
+<form fxLayout="column" fxLayoutAlign="center center" novalidate [formGroup]="LoginForm" #lform="ngForm" (ngSubmit)="onSubmit()" >
+ <div *ngIf="errMess"  class="error">
+    <h3>Invalid Credentials!</h3>
+ </div>
+  <p>
+    <mat-form-field >
+      <input matInput formControlName="cnie" placeholder="CNIE" type="text" class="full-width">
+      <mat-error *ngIf="formErrors.cnie">{{formErrors.cnie}}</mat-error>
+    </mat-form-field>
+    </p>
+    <p>
+    <mat-form-field>
+      <input matInput formControlName="password" placeholder="Password" type="password" class="full-width">
+      <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+    </mat-form-field>
+  </p>
+  <button type="submit" mat-button class="half-width green" [disabled]=LoginForm.invalid>LOGIN</button>
+ 
+</form>
+<div fxLayout="column" fxLayoutAlign="space-between center" *ngIf="gottenUser">
+  <div fxLayout="row" fxLayoutAlign="center center" >
+    <img src="../assets/images/check.png" class="checkLogo">
+    <p class="par"> YES, you are registred !</p>
+  </div>
+    
+      
+      <button mat-button class="lim" [routerLink]="['/codeVerify', gottenUser.cnie]">BEGIN VOTING</button>
+    </div>
+  </div>
+   <!--verify was the step -->
+   <!--instead make another component for 4 code and that 4 code returns to verify-->
+ 
+</div>

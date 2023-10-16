@@ -1,0 +1,18 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="more">
+  <h2>Elections List (Incomplete)</h2>
+</div>
+<div *ngIf="parties" class="marg">
+  
+  <mat-grid-list cols="2" rowHeight="200px">
+  
+    <mat-grid-tile *ngFor="let party of parties" ><!--[routerLink]="['/dishdetail', dish.id]"-->
+      <a><img height="200px" src="/assets/images/{{party.image}}.png" alt={{party.name}} (click)=(openDialog(party))></a>
+      <mat-grid-tile-footer>
+        <h1>{{party.name | uppercase}} </h1>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<div *ngIf="showId">
+  fdjskdj
+</div>

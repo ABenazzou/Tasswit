@@ -1,0 +1,45 @@
+.check {
+    width: auto;
+    height: 100px;
+}
+table {
+    margin-top: 20px;
+    text-align: center;
+    background-color: lightgrey;
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: bold;
+    min-height: 50px;
+
+}
+td {
+    border-left: 1px solid black;
+}
+.active {
+    background-color: #CDDC39;
+    color: white;
+}
+.msg {
+    font-weight: bold;
+    font-size: 20px;
+}
+.subtitle {
+    margin-top: -10px;
+}
+.pad {
+    margin-top: 40px;
+}
+.marg {
+    margin-top: 37px;
+}
+.left {
+    margin-left: 200px;
+    width: 150px;
+    height: auto;
+}
+.right {
+    margin-right: 200px;
+    width: 150px;
+    height: auto;
+}

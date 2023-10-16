@@ -1,0 +1,133 @@
+
+
+<form novalidate [formGroup]="VoteForm" #vform="ngForm" (ngSubmit)="onSubmit()" [hidden]= "Chosen" *ngIf="validVoter">
+  <table>
+    <tr>
+      <td>
+        Verification
+      </td>
+      <td class="active">
+        Voting
+      </td>
+      <td>
+        Review
+      </td>
+      <td>
+        Confirm
+      </td>
+    </tr>
+  </table> 
+  <div fxLayout="column" fxLayoutAlign="space-around center" >
+  <h1>VOTING</h1>
+  <h3 class="subtitle">Voting</h3>
+  </div>
+
+
+
+  <div *ngIf="parties">
+    <mat-grid-list cols="4" rowHeight="200px">
+      
+      <mat-grid-tile *ngFor="let party of parties" ><!--[routerLink]="['/dishdetail', dish.id]"-->
+        <img height="200px" src="/assets/images/{{party.image}}.png" alt={{party.name}} class="partyImg" >
+        <mat-grid-tile-footer>
+          <h1>{{party.name | uppercase}} </h1>
+          <div class="radio"><input type="radio" mat-radio-button formControlName="choice" value="{{party.id}}"></div>
+
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <button type="submit" mat-button class="full-width green" [disabled]=VoteForm.invalid>Confirm the Vote <span class="fa fa-arrow-right fa-lg" ></span></button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  
+</form>
+
+
+<div *ngIf="Chosen" [hidden]="Validated">
+  <table>
+    <tr>
+      <td>
+        Verification
+      </td>
+      <td >
+        Voting
+      </td>
+      <td class="active">
+        Review
+      </td>
+      <td>
+        Confirm
+      </td>
+    </tr>
+  </table> 
+  <div fxLayout="column" fxLayoutAlign="space-around center" >
+  <h1>VOTING</h1>
+  <h3 class="subtitle">Review</h3>
+  
+  <p class="msg">You did choose to vote for : {{choiceName}} </p>
+  <img height="200px" width="auto" src="/assets/images/{{choiceImage}}.png" alt={{choiceName}}  >
+
+
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between center" >
+
+  <button mat-button class="green left" (click)="goBack()"> <span class="fa fa-arrow-left fa-lg" ></span> Go Back </button>
+  <button mat-button class="green right" (click)="onConfirm()">Confirm  <span class="fa fa-arrow-right fa-lg" ></span></button>
+  </div>
+</div>
+<div *ngIf="Validated">
+  <table>
+    <tr>
+      <td>
+        Verification
+      </td>
+      <td>
+        Voting
+      </td>
+      <td>
+        Review
+      </td>
+      <td class="active">
+        Confirm
+      </td>
+    </tr>
+  </table> 
+  <div fxLayout="column" fxLayoutAlign="space-around center" class="marg">
+  <h1>VOTING</h1>
+<h3 class="subtitle">Confirm</h3>
+
+  <p class="msg">Congratulations! You have succesfully added your vote.</p>
+  <img src="assets/images/checked.png" class="check">
+  <button mat-button class="green pad" (click)="onGenerate()">Print Voting Record (PDF)</button>
+  </div>
+</div>
+
+<div [hidden]="validVoter" >
+  <table>
+    <tr>
+      <td>
+        Verification
+      </td>
+      <td>
+        Voting
+      </td>
+      <td>
+        Review
+      </td>
+      <td class="active">
+        Confirm
+      </td>
+    </tr>
+  </table> 
+  <div fxLayout="column" fxLayoutAlign="space-around center" class="marg">
+  <h1>VOTING</h1>
+  <h3 class="subtitle">Confirm</h3>
+
+  <p class="msg">You already Voted! You can print your vote pdf below!</p>
+  <img src="assets/images/checked.png" class="check">
+  <button mat-button class="green pad" (click)="onGenerate()">Print Voting Record (PDF)</button>
+
+</div>
+</div>

@@ -1,0 +1,30 @@
+table {
+    margin-top: 20px;
+    text-align: center;
+    background-color: lightgrey;
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: bold;
+    min-height: 50px;
+
+}
+td {
+    border-left: 1px solid black;
+}
+.active {
+    background-color: #CDDC39;
+    color: white;
+}
+.img {
+    width: auto;
+    height: 380px; 
+    margin-top: 30px;
+}
+.pad2 {
+    margin-bottom: 0 px;
+    margin-top: -1px;
+}
+.right {
+    margin-left: 255px;
+}

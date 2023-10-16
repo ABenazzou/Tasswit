@@ -1,0 +1,18 @@
+<mat-toolbar class="green">
+<span class="flex-spacer"></span>
+  Members of {{party.name}}
+<span class="flex-spacer"></span>
+<button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+<mat-dialog-content >
+  <div fxLayout="row" fxLayoutAlign="center center" >
+
+  <img src="../../assets/images/partiemaroc/{{party.image}}.png" alt="{{party.name}}" class="img">
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <span class="flex-spacer"></span>
+  <button mat-button class="green" (click)="onViz(party.image)">Visualize in a new Window</button>
+  <span class="flex-spacer"></span>
+</mat-dialog-actions>

@@ -1,0 +1,42 @@
+.green {
+    background-color: #4CAF50;
+    min-height: 70px;
+}
+.amber {
+    color:#FBC02D;
+}
+.white {
+    color:white;
+}
+table {
+    max-width: 25%;
+    border-spacing: 0px;
+}
+
+
+.toolbar1 {
+    margin: 5px;
+    max-height: 20px;
+    vertical-align: bottom;
+    font-size: 25px;
+}
+.toolbar2 {
+    margin: 5px;
+    max-height: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    vertical-align: top;
+}
+.logo {
+    width: auto;
+    height: 70px;
+    margin-left: 1%;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+
+}

@@ -1,0 +1,27 @@
+<mat-toolbar class="green"> 
+  <span>
+  <table >
+    <tr>
+      <td rowspan="2">
+        <span><img src="/assets/images/logo.png" class="logo"></span>
+
+      </td>
+      <td class="toolbar1">
+          <a routerLink="/home" routerLinkActive="active"></a><span class="amber" >TASSWIT</span> 
+      </td>
+    </tr>
+    <tr>
+      <td class="toolbar2">
+          <span class="white">Official Online Voting</span>
+      </td>
+    </tr>
+  </table>
+  </span>
+  <span class="flex-spacer"></span><!--right most edge-->
+  <!---->
+  <a mat-button  routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg" ></span> HOME</a>
+  <span class="flex-spacer "></span><!--right most edge-->
+  <a mat-button routerLink="/vote" routerLinkActive="active"><span class="fa fa-archive fa-lg"></span> VOTE</a>
+  <span class="flex-spacer"></span><!--right most edge-->
+  <a mat-button routerLink="/getInformed" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> GET INFORMED</a>
+</mat-toolbar>
